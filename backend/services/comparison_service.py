@@ -1,20 +1,25 @@
+from openai import OpenAI
 import os
-import requests
+
+# Assuming you have already set up the OpenAI client as shown in your previous message
+client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
 
 def compare_sentences(sentence1, sentence2):
-    api_key = os.getenv('OPENAI_API_KEY')
-    headers = {
-        'Authorization': f'Bearer {api_key}',
-        'Content-Type': 'application/json',
-    }
-    data = {
-        "model": "text-davinci-003",
-        "prompt": f"Please compare these two sentences for pronunciation accuracy:\n\nReference: {sentence1}\nSpoken: {sentence2}\n",
-        "temperature": 0.5,
-        "max_tokens": 150
-    }
-    response = requests.post('https://api.openai.com/v1/engines/text-davinci-003/completions', json=data, headers=headers)
-    if response.status_code == 200:
-        return response.json()
-    else:
-        return {"error": "Failed to connect to OpenAI API"}
+    try:
+        response = client.chat.completions.create(
+            model="gpt-3.5-turbo",  # or the latest suitable model
+            temperature=0.5,  # Adjust temperature based on desired creativity
+            max_tokens=250,
+            
+            messages=[
+                {"role": "system", "content": "You are a mother who is very nurturing and caring. You are teaching your child how to read senteces in english correctly and correcting the mistakes of wrongly pronounced words."},
+                {"role": "user", "content": f"Reference: {sentence1}"},
+                {"role": "user", "content": f"Spoken: {sentence2}"},
+                {"role": "system", "content": "Answer like a mother. Correct the wrongly spoken words slowly."}
+            ]
+        )
+        # Extracting just the text response from the assistant's last message
+        last_message = response.choices[0].message.content
+        return {"result": last_message}
+    except Exception as e:
+        return {"error": str(e)}
