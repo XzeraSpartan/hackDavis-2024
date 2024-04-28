@@ -3,8 +3,9 @@ import "./Content.css";
 import SideNavContent from "./SideNavContent";
 import test from "../assets/story_images/test.webp";
 import Controls from "./Controls";
+import bg_img from "../assets/bg_img.gif";
 
-const url = "https://hackdavis-9dc802d0506c.herokuapp.com/"
+const url = "https://hackdavis-9dc802d0506c.herokuapp.com/";
 
 const Content = ({ viewSidebar }) => {
   const [response, setResponse] = useState(
@@ -50,8 +51,6 @@ const Content = ({ viewSidebar }) => {
   const [userReading, setUserReading] = useState(false);
   const [selectedSentence, SetSelectedSentence] = useState(0);
 
- 
-
   const handleActionClick = (actionBy) => {
     // console.log(actionBy);
     if (actionBy == "user") {
@@ -69,7 +68,7 @@ const Content = ({ viewSidebar }) => {
 
   const handleSentenceClick = (i) => {
     console.log(i, response["book_text"][i]);
-    SetSelectedSentence( prev => i);
+    SetSelectedSentence((prev) => i);
     console.log(selectedSentence);
   };
 
@@ -80,9 +79,9 @@ const Content = ({ viewSidebar }) => {
 
   const handleSelectRecommendedClick = () => {
     setSelectedBook({
-      book_id: 1
-    })
-  }
+      book_id: 1,
+    });
+  };
 
   return (
     <div id="content-container">
@@ -90,12 +89,14 @@ const Content = ({ viewSidebar }) => {
       <div id="content">
         {!response && (
           <div id="no-content-msg">
-            <div id="title-main">Mātrā AI</div>
-            <p>
-              Please Select a book from the Sidebar or 
-              </p>
-            {/* <br /> */}
-            <button onClick={handleSelectRecommendedClick}>Select Recommended</button>
+            <img src={bg_img} alt="" id="bg-img" />
+            <div className="bg-text">
+              <div id="title-main">Mātrā AI</div>
+              <p>Empowering non-native children</p>
+              <button onClick={handleSelectRecommendedClick}>
+                Start Learning
+              </button>
+            </div>
           </div>
         )}
         {response && (
@@ -134,9 +135,9 @@ const Content = ({ viewSidebar }) => {
               handleActionClick={handleActionClick}
               handleAudioData={handleAudioData}
               selectedSentence={selectedSentence}
-              bookContent = {response}
+              bookContent={response}
               setSelectedSentence={SetSelectedSentence}
-              selectedBook = {selectedBook}
+              selectedBook={selectedBook}
             />
           </div>
         )}
