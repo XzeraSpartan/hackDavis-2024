@@ -13,6 +13,7 @@ app.register_blueprint(comparison_controller.bp)
 
 # Register the routes
 app.register_blueprint(book_controller.bp)
+#test
 
 if __name__ == "__main__":
     app.run(debug=True)
