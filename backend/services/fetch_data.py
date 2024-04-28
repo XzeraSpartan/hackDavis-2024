@@ -15,10 +15,17 @@ def fetch_table():
 
     all_books_fetch_nav= supabase.table('books').select('*').eq('book_name', name).execute()
     return all_books_fetch_nav.data'''
+def fetch_metadata():
+    metadata = supabase.table('books').select('book_id, book_name, book_image').execute()
+    unique_books = {}
+    for book in metadata.data:
+        if book['book_id'] not in unique_books:
+            unique_books[book['book_id']] = book
+    return unique_books
 
-def fetch_single_book_with_name(name):
-    single_fetch_book_with_title = supabase.table('books').select('*').like('book_name', '%'+name+'%').order('page_number', desc=False).execute()
-    return single_fetch_book_with_title.data
+def fetch_single_book_with_id(id):
+    single_fetch_book_with_id = supabase.table('books').select('*').eq('book_id',id).order('page_number', desc=False).execute()
+    return single_fetch_book_with_id.data
 #print(response.data)
 
 #test_data = fetch_single_book_with_name('TOOTH FAIRY')
