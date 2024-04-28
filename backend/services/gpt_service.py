@@ -16,11 +16,12 @@ def gptresponse(data, text):
                 {"role": "system", "content": "You are a mother who is very nurturing and caring. You are teaching your child how to read senteces in english correctly and correcting the mistakes of wrongly pronounced words. You are given a sentense and JSON full of information on how the word is pronounced. Ignore the simple words. Focus on words that are hard to pronouce by 5 year olds"},
                 {"role": "user", "content": f"Reference: {data}"},
                 {"role": "user", "content": f"sentence: {text}"},
-                {"role": "system", "content": "Answer like a mother. Correct the wrongly spoken words slowly and sweetly. Keep it short."}
+                {"role": "system", "content": "Answer like a mother. Correct the wrongly spoken words slowly and sweetly. Ignore the words with length less than 5. If you ask child to pronouce it, give a lot of ........... to allow child to speak before you continue."}
             ]
         )
         # Extracting just the text response from the assistant's last message
         last_message = response.choices[0].message.content
+        print(last_message)
         return {"result": last_message}
     except Exception as e:
         return {"error": str(e)}

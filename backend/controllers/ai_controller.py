@@ -20,34 +20,36 @@ def TTS():
 
 @bp.route('/stt_tts', methods=['POST'])
 def STT_to_TTS():
-    # Check if the post request has the file part
-   
-    file = request.form.get('file')
+    # Check if the file part exists in the request
+    if 'file' not in request.files:
+        return jsonify({"error": "No file part in the request"}), 400
+
+    file = request.files['file']
     if file.filename == '':
         return jsonify({"error": "No file selected for uploading"}), 400
 
-    # Retrieve the text from form data
+    # Check if text data is provided
     text = request.form.get('text')
     if not text:
         return jsonify({"error": "No text provided"}), 400
 
+    # Validate file type and process if valid
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
-        filepath = os.path.join('/uploads', filename)  # Adjust path as needed
+        filepath = os.path.join('uploads', filename)
+        if not os.path.exists(os.path.dirname(filepath)):
+            os.makedirs(os.path.dirname(filepath))
         file.save(filepath)
-
-        # Assuming speech_to_text function accepts both text and filepath
-        s
-        converted_text = speech_to_text(text, filepath)  # Adjust function usage as needed
-
-        # Assuming text_to_speech_file function from a different module
-       
-        response_file_path = text_to_speech_file(converted_text)
         
-        # Clean up the original upload
+
+        # Process the file and text to convert speech to text and text to speech
+        converted_text = speech_to_text(text, filepath)  # This function should accept both arguments
+        response_file_path = text_to_speech_file(converted_text)  # Convert the processed text back to speech
+
+        # Clean up the uploaded file after processing
         os.remove(filepath)
 
-        # Send the generated MP3 file
+        # Send the new MP3 file back to the client
         return send_file(response_file_path, as_attachment=True, mimetype='audio/mp3')
     else:
         return jsonify({"error": "Invalid file format"}), 400
