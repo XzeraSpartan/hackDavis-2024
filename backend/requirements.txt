@@ -4,3 +4,5 @@ python-dotenv==0.20.0
 elevenlabs==1.2.0
 simpleaudio==1.0.4
 supabase==2.1.1
+gunicorn
+openai
