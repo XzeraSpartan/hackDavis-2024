@@ -2,11 +2,12 @@ from flask import Flask, request, jsonify
 import os
 from dotenv import load_dotenv
 from controllers import comparison_controller, book_controller
-
+from flask_cors import CORS
 from supabase import create_client, Client
 
 
 app = Flask(__name__)
+CORS(app) 
 load_dotenv()  # Load environment variables
 
 app.register_blueprint(comparison_controller.bp)
