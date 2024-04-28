@@ -17,10 +17,14 @@ def fetch_table():
     return all_books_fetch_nav.data'''
 def fetch_metadata():
     metadata = supabase.table('books').select('book_id, book_name, book_image').execute()
-    unique_books = {}
+    unique_books = []
+    seen_book_ids = set()  # To track seen book_ids
+
     for book in metadata.data:
-        if book['book_id'] not in unique_books:
-            unique_books[book['book_id']] = book
+        if book['book_id'] not in seen_book_ids:
+            seen_book_ids.add(book['book_id'])
+            unique_books.append(book)
+
     return unique_books
 
 def fetch_single_book_with_id(id):
