@@ -1,6 +1,6 @@
 import requests
-
-
+from services.preprocess_json import simplify_json
+from services.gpt_service import gptresponse
 def speech_to_text(text, audiofilepath):
     key = "K4C9%2BJHxKNv6rAZpg0mIuC4LUmAq8h%2Fss4zMommvligzrjk1d2jdWqRIUkMMCka6KtZaHY8hE8bVcqgFC6j4pf2%2FWia99z0gNG4nV14IOKyDy%2BKieBqyAlUbGKQHnsET"
     api_endpoint = "https://api.speechace.co"
@@ -14,9 +14,8 @@ def speech_to_text(text, audiofilepath):
     user_file_handle = open(audiofilepath, "rb")
 
     files = {"user_audio_file": user_file_handle}
-    response = requests.post(url, data=payload, files=files)
-    print(response.text)
-
+    response = gptresponse(simplify_json(requests.post(url, data=payload, files=files)), text)
+    
     return response
 
 

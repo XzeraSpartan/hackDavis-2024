@@ -5,7 +5,7 @@ import os
 #client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
 client = OpenAI(api_key='sk-proj-eBd63BQmZ86UAWgJYOF2T3BlbkFJtVkmcq7C1hj85xTcm7BQ')
 
-def compare_sentences(sentence1, sentence2):
+def gptresponse(data, text):
     try:
         response = client.chat.completions.create(
             model="gpt-3.5-turbo",  # or the latest suitable model
@@ -13,10 +13,10 @@ def compare_sentences(sentence1, sentence2):
             max_tokens=250,
             
             messages=[
-                {"role": "system", "content": "You are a mother who is very nurturing and caring. You are teaching your child how to read senteces in english correctly and correcting the mistakes of wrongly pronounced words."},
-                {"role": "user", "content": f"Reference: {sentence1}"},
-                {"role": "user", "content": f"Spoken: {sentence2}"},
-                {"role": "system", "content": "Answer like a mother. Correct the wrongly spoken words slowly."}
+                {"role": "system", "content": "You are a mother who is very nurturing and caring. You are teaching your child how to read senteces in english correctly and correcting the mistakes of wrongly pronounced words. You are given a sentense and JSON full of information on how the word is pronounced. Ignore the simple words. Focus on words that are hard to pronouce by 5 year olds"},
+                {"role": "user", "content": f"Reference: {data}"},
+                {"role": "user", "content": f"sentence: {text}"},
+                {"role": "system", "content": "Answer like a mother. Correct the wrongly spoken words slowly and sweetly. Keep it short."}
             ]
         )
         # Extracting just the text response from the assistant's last message
