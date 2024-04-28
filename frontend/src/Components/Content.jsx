@@ -25,14 +25,15 @@ const Content = ({ viewSidebar }) => {
 
   useEffect(() => {
     // fetch("")
-    console.log("fetching...");
+    // console.log("fetching...");
     if (selectedBook) {
       fetch(`http://127.0.0.1:5000/book/get_book_data/${selectedBook.book_id}`)
         .then((res) => res.json()) // Convert the response to JSON
         .then((data) => {
           // Update state with the fetched books
           setResponse(data.result[0]);
-          console.log(response);
+          SetSelectedSentence(0);
+          // console.log(response);
         })
         .catch((error) => {
           // Log any errors to the console
@@ -45,31 +46,34 @@ const Content = ({ viewSidebar }) => {
 
   const [aiReading, setAiReading] = useState(false);
   const [userReading, setUserReading] = useState(false);
-  const [selectedSentence, SetSelectedSentence] = useState(null);
+  const [selectedSentence, SetSelectedSentence] = useState(0);
+
+ 
 
   const handleActionClick = (actionBy) => {
-    console.log(actionBy);
+    // console.log(actionBy);
     if (actionBy == "user") {
       // let user speak
       setUserReading(true);
 
-      console.log("user reading", userReading, selectedSentence);
+      // console.log("user reading", userReading, selectedSentence);
     } else if (actionBy == "ai") {
       // let ai speak
       setAiReading(true);
       console.log("ai reading", aiReading, selectedSentence);
+      handleSubmitAI();
     }
   };
 
   const handleSentenceClick = (i) => {
     console.log(i, response["book_text"][i]);
-    SetSelectedSentence(i);
+    SetSelectedSentence( prev => i);
     console.log(selectedSentence);
   };
 
   const handleAudioData = (audioBlob) => {
     // Logic to send audio data to the backend...
-    console.log(audioBlob);
+    // console.log(audioBlob);
   };
 
   const handleSelectRecommendedClick = () => {
@@ -125,7 +129,9 @@ const Content = ({ viewSidebar }) => {
               handleActionClick={handleActionClick}
               handleAudioData={handleAudioData}
               selectedSentence={selectedSentence}
+              bookContent = {response}
               setSelectedSentence={SetSelectedSentence}
+              selectedBook = {selectedBook}
             />
           </div>
         )}

@@ -5,7 +5,8 @@ from elevenlabs import VoiceSettings
 from elevenlabs.client import ElevenLabs
 
 # ELEVENLABS_API_KEY = os.getenv("ELEVENLABS_API_KEY")
-ELEVENLABS_API_KEY = "56fed7fcb4574f5b9de5b1d11535f194"
+ELEVENLABS_API_KEY = "ddd0e857af399d32350944f7560a059f"
+# api key = ddd0e857af399d32350944f7560a059f
 client = ElevenLabs(
     api_key=ELEVENLABS_API_KEY,
 )
@@ -14,7 +15,8 @@ client = ElevenLabs(
 def text_to_speech_file(text: str) -> str:
     
     response = client.text_to_speech.convert(
-        voice_id="4akuk2vRYPQlh6t4cOFN",
+        # voice_id="4akuk2vRYPQlh6t4cOFN",
+        voice_id = "ui6WwMCE0XRrN3bd6oz3",
         optimize_streaming_latency="0",
         output_format="mp3_22050_32",
         text=text,

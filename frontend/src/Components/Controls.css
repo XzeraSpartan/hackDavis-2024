@@ -85,3 +85,30 @@
 .controls-button.pulsing {
     animation: pulseAnimation 2s infinite; /* Run for 2 seconds and repeat indefinitely */
 }
+
+.controls-button {
+    position: relative;  /* Ensure the button is positioned relatively so the spinner can be positioned absolutely within it */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;   /* Adjust size as needed */
+    height: 50px;  /* Adjust size as needed */
+}
+
+.spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid rgba(0,0,0,0.1);
+    border-top: 3px solid blue; /* Change color as needed */
+    border-radius: 50%;
+    width: 100%;  /* Smaller than the button to fit inside */
+    height: 100%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}

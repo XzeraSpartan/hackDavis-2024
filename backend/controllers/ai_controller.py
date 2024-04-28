@@ -1,4 +1,5 @@
 from flask import Blueprint, request, jsonify, send_file
+from flask_cors import cross_origin
 from services.text_to_speech import text_to_speech_file
 from services.speech_to_text import speech_to_text
 from werkzeug.utils import secure_filename
@@ -9,6 +10,7 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in {'mp3'}
 
 @bp.route('/tts/', methods=['POST'])
+@cross_origin()
 def TTS():
     #print(request.method)
     if request.method == 'POST':
@@ -19,6 +21,7 @@ def TTS():
     
 
 @bp.route('/stt_tts', methods=['POST'])
+@cross_origin()
 def STT_to_TTS():
     # Check if the file part exists in the request
     if 'file' not in request.files:
