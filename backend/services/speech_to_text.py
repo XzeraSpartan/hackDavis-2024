@@ -20,4 +20,4 @@ def speech_to_text(text, audiofilepath):
     return response
 
 
-speech_to_text("", "/Users/harsh/Documents/hackDavis-2024/test.mp3")
+#speech_to_text("“Yes.”said Canine “I know exactly what’s wrong, The children are beginning to eat far too many sweets and are not looking after their teeth at all.” “I know…we can fix it!” Said Molar the wise one. She sounded quite excited by her grand idea.", "/Users/harsh/Documents/hackDavis-2024/test.mp3")
