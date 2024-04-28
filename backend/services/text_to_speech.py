@@ -11,7 +11,7 @@ client = ElevenLabs(
 )
 
 
-def text_to_speech_file(text: str, filename) -> str:
+def text_to_speech_file(text: str) -> str:
     
     response = client.text_to_speech.convert(
         voice_id="4akuk2vRYPQlh6t4cOFN",
@@ -26,16 +26,16 @@ def text_to_speech_file(text: str, filename) -> str:
             use_speaker_boost=True,
         ),
     )
-    save_file_path = f"{filename}.mp3"
+    #save_file_path = f"{filename}.mp3"
 
-    with open(save_file_path, "wb") as f:
+    '''with open(save_file_path, "wb") as f:
         for chunk in response:
             if chunk:
                 f.write(chunk)
 
-    print(f"{save_file_path}: A new audio file was saved successfully!")
+    print(f"{save_file_path}: A new audio file was saved successfully!")'''
 
-    return save_file_path
+    return response
 
 
 
