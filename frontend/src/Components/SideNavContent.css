@@ -1,8 +1,50 @@
-#sidenav-content{
-    width: 30%;
-    background-color: #F5EDE0;
-  }
+#sidenav-content {
+  width: 30%;
+  background-color: #F5EDE0;
+  padding: 20px;
+}
 
-.sidenav-book{
-  display: grid;
+.sidenav-book {
+  position: relative;
+  width: 200px;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidenav-book img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+.sidenav-book p {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay for better readability */
+  color: white;
+  margin: 0;
+  padding: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: larger;
+  text-align: center;
+  transition: background 0.3s ease;
+  text-transform: capitalize;
+}
+
+.sidenav-book:hover {
+  transform: scale(1.05); /* Slightly enlarge books on hover */
+}
+
+.sidenav-book:hover img {
+  opacity: 0.7; /* Dim the image a bit to emphasize the title */
+}
+
+.sidenav-book:hover p {
+  background: rgba(0, 0, 0, 0.8); /* Darken the overlay on hover for more emphasis */
 }
