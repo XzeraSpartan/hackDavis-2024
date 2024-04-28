@@ -1,11 +1,114 @@
-#content-container{
-    width: 93%;
-    height: 100%;
-    text-align: center;
-    display: flex;
-
+#content-container {
+  width: 93%;
+  height: 100%;
+  text-align: center;
+  display: flex;
 }
 
-#content{
+#content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#book-container {
+  width: 750px;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fdfdf1;
+  box-shadow: 2px 2px 5px lightgray;
+  border-radius: 5px;
+}
+
+#book-title {
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
+
+.book-page-text {
+  text-align: justify;
+  width: 70%;
+  margin: 0 auto;
+  height: 50%;
+  overflow-y: scroll;
+}
+
+.book-page {
+  /* background-image: url("../assets/book-bg.png"); */
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.book-page-image {
+  /* width: 100%; */
+  object-fit: contain;
+  height: 60%;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+.andika-bold {
+  font-family: "Andika", sans-serif;
+  /* font-weight: 500; */
+  font-style: normal;
+}
+
+.book-page-text::-webkit-scrollbar {
+  /* display: none; */
+}
+
+/* Hide scrollbar for IE, Edge, and Firefox */
+.book-page-text {
+  scrollbar-width: none; /* Firefox */
+}
+
+/* .storybook-background {
+    background: linear-gradient(to bottom, #a2d0c1 0%, #f9ead3 100%);
     width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.storybook-background img {
+    max-width: 80%;
+    height: auto;
+} */
+
+
+.ai-reading{
+    background: lightblue ;
+}
+
+.user-reading{
+    background: lightgreen;
+}
+
+.sentence{
+  cursor: pointer;
+}
+
+.sentence:hover{
+  /* background-color: blue; */
+  background: rgb(145, 227, 69);
+  color: white;
+}
+
+.sentence-selected{
+  background: rgb(145, 227, 69);
+  color: white;
+}
+
+.sentence-not-selected{
+  background: none;
+  color: black;
 }
