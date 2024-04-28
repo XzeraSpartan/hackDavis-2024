@@ -1,0 +1,11 @@
+#content-container{
+    width: 93%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+
+}
+
+#content{
+    width: 100%;
+}

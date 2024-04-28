@@ -1,0 +1,40 @@
+#sidenav-container{
+    width: 7%;
+    height: 100%;
+    border-right: 1px solid #DACFCF;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    padding: 10px;
+}
+
+#icons-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #DACFCF;
+    border-radius: 7px;
+    background-color: #F5EDE0;
+    cursor: pointer;
+}
+
+
+.icon{
+    height: 40px;
+    width: 40px;
+    object-fit: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  

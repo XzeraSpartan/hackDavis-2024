@@ -1,0 +1,8 @@
+#sidenav-content{
+    width: 30%;
+    background-color: #F5EDE0;
+  }
+
+.sidenav-book{
+  display: grid;
+}
