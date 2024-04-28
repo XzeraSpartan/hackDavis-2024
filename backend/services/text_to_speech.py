@@ -26,16 +26,18 @@ def text_to_speech_file(text: str) -> str:
             use_speaker_boost=True,
         ),
     )
+    save_file_path = f"tts_output_{os.urandom(12).hex()}.mp3"
+
     #save_file_path = f"{filename}.mp3"
 
-    '''with open(save_file_path, "wb") as f:
+    with open(save_file_path, "wb") as f:
         for chunk in response:
             if chunk:
                 f.write(chunk)
 
-    print(f"{save_file_path}: A new audio file was saved successfully!")'''
+    print(f"{save_file_path}: A new audio file was saved successfully!")
 
-    return response
+    return save_file_path
 
 
 

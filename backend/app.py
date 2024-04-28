@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 import os
 from dotenv import load_dotenv
-from controllers import comparison_controller, book_controller
+from controllers import comparison_controller, book_controller, ai_controller
 
 from supabase import create_client, Client
 
@@ -13,6 +13,7 @@ app.register_blueprint(comparison_controller.bp)
 
 # Register the routes
 app.register_blueprint(book_controller.bp)
+app.register_blueprint(ai_controller.bp)
 #test
 
 if __name__ == "__main__":
