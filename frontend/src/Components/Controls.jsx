@@ -7,6 +7,9 @@ import useVoiceRecorder from "../CustomHooks/useVoiceRecorder";
 import sample_audio from "../assets/sample_audio.mp3";
 import "./Controls.css";
 
+const url = "https://hackdavis-9dc802d0506c.herokuapp.com/"
+
+
 const Controls = ({
   handleActionClick,
   handleAudioData,
@@ -121,7 +124,7 @@ const Controls = ({
     const text = bookContent["book_text"][selectedSentence] + "Try the next line. you can do it";
     if(selectedSentence !== null){
       try {
-          const response = await fetch("http://127.0.0.1:5000/ai/tts/", {
+          const response = await fetch(`${url}/ai/tts/`, {
               method: "POST",
               headers: {
                   "Content-Type": "text/plain",
@@ -155,7 +158,7 @@ const Controls = ({
     console.log("formData", formData);
     if(selectedSentence !== null){
       try {
-        const response = await fetch("http://127.0.0.1:5000/ai/stt_tts", {
+        const response = await fetch(`${url}/ai/stt_tts`, {
           method: "POST",
           body: formData,
         });

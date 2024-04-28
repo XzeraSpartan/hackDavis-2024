@@ -4,6 +4,8 @@ import SideNavContent from "./SideNavContent";
 import test from "../assets/story_images/test.webp";
 import Controls from "./Controls";
 
+const url = "https://hackdavis-9dc802d0506c.herokuapp.com/"
+
 const Content = ({ viewSidebar }) => {
   const [response, setResponse] = useState(
     //   [
@@ -27,7 +29,7 @@ const Content = ({ viewSidebar }) => {
     // fetch("")
     // console.log("fetching...");
     if (selectedBook) {
-      fetch(`http://127.0.0.1:5000/book/get_book_data/${selectedBook.book_id}`)
+      fetch(`${url}book/get_book_data/${selectedBook.book_id}`)
         .then((res) => res.json()) // Convert the response to JSON
         .then((data) => {
           // Update state with the fetched books
@@ -88,8 +90,11 @@ const Content = ({ viewSidebar }) => {
       <div id="content">
         {!response && (
           <div id="no-content-msg">
-            Please Select a book from the Sidebar or 
-            <br />
+            <div id="title-main">Mātrā AI</div>
+            <p>
+              Please Select a book from the Sidebar or 
+              </p>
+            {/* <br /> */}
             <button onClick={handleSelectRecommendedClick}>Select Recommended</button>
           </div>
         )}

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./SideNavContent.css";
 
+const url = "https://hackdavis-9dc802d0506c.herokuapp.com/"
+
 const SideNavContent = ({setSelectedBook}) => {
   const [response, setResponse] = useState([
     // {
@@ -35,7 +37,7 @@ const SideNavContent = ({setSelectedBook}) => {
   useEffect(() => {
     // Fetch data from the API
     console.log("fetching...")
-    fetch("http://127.0.0.1:5000/book/get_metadata/")
+    fetch(`${url}/book/get_metadata/`)
       .then((res) => res.json())  // Convert the response to JSON
       .then((data) => {
         // Update state with the fetched books

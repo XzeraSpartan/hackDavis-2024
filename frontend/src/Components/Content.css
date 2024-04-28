@@ -12,6 +12,40 @@
   flex-direction: column;
 }
 
+#no-content-msg {
+  text-align: center;
+  /* margin-top: 50px; */
+}
+
+#title-main{
+  font-size: 56px;
+  font-family: helvetica;
+  font-weight: bold;
+}
+
+#no-content-msg p {
+  font-size: 36px; /* Increased font size */
+  margin-bottom: 20px;
+  font-family: helvetica;
+}
+
+
+#no-content-msg button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#no-content-msg button:hover {
+  background-color: #0056b3;
+}
+
+
 #content {
   width: 100%;
   display: flex;
