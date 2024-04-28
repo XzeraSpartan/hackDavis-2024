@@ -2,7 +2,7 @@ Flask==2.2.2
 requests==2.28.1
 python-dotenv==0.20.0
 elevenlabs==1.2.0
-simpleaudio==1.0.4
+simpleaudio; platform_system != 'Linux'
 supabase==2.1.1
 gunicorn==22.0.0
 openai==1.23.6
