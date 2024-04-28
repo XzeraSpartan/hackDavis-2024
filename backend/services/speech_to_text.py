@@ -18,3 +18,6 @@ def speech_to_text(text, audiofilepath):
     print(response.text)
 
     return response
+
+
+speech_to_text("", "/Users/harsh/Documents/hackDavis-2024/test.mp3")

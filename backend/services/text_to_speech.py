@@ -43,4 +43,4 @@ def text_to_speech_file(text: str, filename) -> str:
 
 #text_to_speech_file("Each beast, from the tiniest ant to the largest elephant, made its way to Pride Rock. For that was the home of the Lion King, and this was a special day in the pride Lands.", 'student')
 
-
+#text_to_speech_file("Sure thing! Let's focus on the longer words to really hone your pronunciation. You're making great strides, so let's keep up the fantastic work! Canine: You're almost there! Try to make the 'a' sound like in 'cat,' and for the 'i,' imagine you're happy, saying it like 'i-e.' This will really help get that clear pronunciation. Teeth: A little tricky, but I know you can do it! Put your tongue just between your teeth and let a bit of air through for the 'th' sound. Say it like 't-e-th.' You're doing wonderfully with these words! Every little bit of practice is making you better, and I'm so proud of you for trying so hard. Keep practicing, and you'll see how much smoother it gets! You're doing an amazing job!",'sophia_response_to_student')
