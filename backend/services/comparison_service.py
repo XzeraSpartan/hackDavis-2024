@@ -2,7 +2,8 @@ from openai import OpenAI
 import os
 
 # Assuming you have already set up the OpenAI client as shown in your previous message
-client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+#client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+client = OpenAI(api_key='sk-proj-eBd63BQmZ86UAWgJYOF2T3BlbkFJtVkmcq7C1hj85xTcm7BQ')
 
 def compare_sentences(sentence1, sentence2):
     try:
