@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 from openai import OpenAI
-from services import comparison_service
+from backend.services import gpt_service
 
 bp = Blueprint('comparison', __name__, url_prefix='/compare')
 
@@ -11,5 +11,5 @@ def compare():
     sentence2 = data.get('sentence2')
     if not sentence1 or not sentence2:
         return jsonify({"error": "Please provide both sentences."}), 400
-    result = comparison_service.compare_sentences(sentence1, sentence2)
+    result = gpt_service.compare_sentences(sentence1, sentence2)
     return jsonify(result)
