@@ -4,6 +4,7 @@ import SideNavContent from "./SideNavContent";
 import test from "../assets/story_images/test.webp";
 import Controls from "./Controls";
 import bg_img from "../assets/bg_img.gif";
+import page_bg from "../assets/page_bg.jpg"
 
 const url = "https://hackdavis-9dc802d0506c.herokuapp.com/";
 

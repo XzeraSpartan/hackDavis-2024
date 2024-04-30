@@ -62,14 +62,16 @@
 }
 
 #book-container {
+  background-image: url("../assets/page_bg.jpg");
+  background-size: cover;
   width: 750px;
   height: 800px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  background-color: #fdfdf1;
-  box-shadow: 2px 2px 5px lightgray;
+  background-color: #f8faf8;
+  /* box-shadow: 2px 2px 5px lightgray; */
   border-radius: 5px;
 }
 
@@ -91,7 +93,6 @@
 }
 
 .book-page {
-  /* background-image: url("../assets/book-bg.png"); */
   width: 100%;
   height: 90%;
   display: flex;

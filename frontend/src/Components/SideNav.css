@@ -1,7 +1,7 @@
 #sidenav-container{
     width: 7%;
     height: 100%;
-    border-right: 1px solid #DACFCF;
+    /* border-right: 1px solid #DACFCF; */
     display: flex;
     /* flex-direction: column; */
     justify-content: center;
@@ -21,9 +21,9 @@
     justify-content: center;
     align-items: center;
     padding: 10px;
-    border: 1px solid #DACFCF;
+    /* border: 1px solid #DACFCF; */
     border-radius: 7px;
-    background-color: #F5EDE0;
+    background-color: #f8faf8;
     cursor: pointer;
 }
 
